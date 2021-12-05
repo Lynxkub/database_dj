@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Playlists{% endblock %}
+
+{% block content %}
+<div class = 'container'>
+    <div class='row'>
+        <div class = 'col-md-4 mx-auto'>
+{% for playlist in playlists %}
+<p>
+<a href = '/playlists/{{playlist.id}}'><b>{{playlist.name}}</b></a>
+ -{{playlist.description}}
+</p>
+{% endfor %}
+<form>
+    <button formaction = '/playlists/add' class = 'btn btn-sm btn-primary'>Create Playlist</button>
+</form>
+<br>
+<form>
+    <button formaction = '/songs' class = 'btn btn-sm btn-primary'>View All Songs</button>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

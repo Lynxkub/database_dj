@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{playlist.name}}{% endblock %}
+
+{% block content %}
+<div class = 'container'>
+    <div class = 'row'>
+        <div class = 'col-md-4 mx-auto'>
+<h1>{{playlist.name}} Playlist</h1>
+
+{% for song in playlist.songs %}
+
+<P>
+    <b>{{song.title}}</b> - {{song.artist}}
+</P>
+{% endfor %}
+
+<form>
+    <button formaction = '/songs/add' class = 'btn btn-sm btn-info'>Add A Song</button>
+    <button formaction = '/playlists/{{playlist.id}}/add-song' class = 'btn btn-sm btn-info'>Add Songs to Playlist</button>
+    <button formaction = '/' class = 'btn btn-sm btn-info'>Go Back Home</button>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

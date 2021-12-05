@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Song to Playlist{% endblock %}
+
+{% block content %}
+<div class = 'container'>
+    <div class = 'row'>
+        <div class = 'col-md-4 mx-auto'>
+<form method = 'POST'>
+    {{form.hidden_tag()}}
+
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    <p>
+        {{field.label}}
+        {{field}}
+
+        {% for errors in field.errors %}
+        {{error}}
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <button type = 'submit' class = 'btn btn-sm btn-info'>Add Song to Playlist</button>
+</form>
+</div>
+</div>
+</div>
+
+{% endblock %}
